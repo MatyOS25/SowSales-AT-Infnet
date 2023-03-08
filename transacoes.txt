@@ -1,0 +1,4 @@
+T;2022-12-20;false;joao@gomes.com;123.456.789-01;Joaozinho;123123
+R;Reserva Futura;2000;2023-10-12;valor referente a futuras transacoes
+P;Viagem para Disney;5000;viagem;bradesco;false;false
+PP;13;3000;2022-12-20;false
