@@ -13,7 +13,6 @@ public class Granel extends Produto {
     
     private Integer id;
     
-
     
     public Granel(String name, float valor, String description, Variedade variedade, boolean exportacao ) throws NameEmptyException, VariedadeEmptyException {
         super(name, valor,description,variedade);
@@ -21,8 +20,8 @@ public class Granel extends Produto {
         	throw new VariedadeEmptyException("variedade necessaria para cadastrar partida");
         }
         this.exportacao = exportacao;
-        //TODO Auto-generated constructor stub
     }
+
     public Granel(String name, float valor, Variedade variedade, boolean transacao) throws NameEmptyException, VariedadeEmptyException {
         super(name, valor, variedade);
         if(variedade == null) {
