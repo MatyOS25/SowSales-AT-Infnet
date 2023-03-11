@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.edu.infnet.sowsales.controller.model.ControllerModel;
 import br.edu.infnet.sowsales.model.domain.Granel;
 import br.edu.infnet.sowsales.model.domain.User;
+import br.edu.infnet.sowsales.model.exceptions.DataPrevNullException;
+import br.edu.infnet.sowsales.model.exceptions.FormatoDataException;
+import br.edu.infnet.sowsales.model.exceptions.NameEmptyException;
+import br.edu.infnet.sowsales.model.exceptions.VariedadeEmptyException;
 import br.edu.infnet.sowsales.model.service.GranelService;
 import br.edu.infnet.sowsales.repository.GranelRepository;
 import br.edu.infnet.sowsales.repository.UserRepository;
@@ -47,8 +51,8 @@ public class GranelController<LocalDate> extends ControllerModel<Granel, GranelS
 
         Granel entidade = null;
         try {
-            entidade = new Granel(name , valor, dataPrev, saida);
-        } catch (FormatoDataException | NameEmptyException | DataPrevNullException e) {
+            entidade = new Granel(name, valor, name, null, saida);
+        } catch (NameEmptyException | VariedadeEmptyException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
