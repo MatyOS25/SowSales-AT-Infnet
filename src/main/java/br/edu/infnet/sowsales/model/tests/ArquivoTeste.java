@@ -8,14 +8,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.infnet.sowsales.model.domain.Conta;
-import br.edu.infnet.sowsales.model.domain.Lancamento;
-import br.edu.infnet.sowsales.model.domain.Partida;
-import br.edu.infnet.sowsales.model.domain.Provisao;
-import br.edu.infnet.sowsales.model.domain.Reserva;
-import br.edu.infnet.sowsales.model.domain.Transacao;
+import br.edu.infnet.sowsales.model.domain.Variedade;
+import br.edu.infnet.sowsales.model.domain.Produto;
+import br.edu.infnet.sowsales.model.domain.Granel;
+import br.edu.infnet.sowsales.model.domain.Semente;
+import br.edu.infnet.sowsales.model.domain.SementeTratada;
+import br.edu.infnet.sowsales.model.domain.Pedido;
 import br.edu.infnet.sowsales.model.domain.User;
-import br.edu.infnet.sowsales.model.exceptions.ContaEmptyException;
+import br.edu.infnet.sowsales.model.exceptions.VariedadeEmptyException;
 import br.edu.infnet.sowsales.model.exceptions.DataPrevNullException;
 import br.edu.infnet.sowsales.model.exceptions.FormatoDataException;
 import br.edu.infnet.sowsales.model.exceptions.InfoAdicionalIncompletaException;
@@ -39,8 +39,8 @@ public class ArquivoTeste {
 				String linha = leitura.readLine();			
 				String[] campos = null;
 				
-				List<Lancamento> lancamentos = new ArrayList<Lancamento>();
-				Transacao trans = null;
+				List<Produto> lancamentos = new ArrayList<Produto>();
+				Pedido trans = null;
 
 				while(linha != null) {
 					
@@ -49,7 +49,7 @@ public class ArquivoTeste {
 					switch (campos[0].toUpperCase()) {
 					case "T":		
 						try{
-							trans = new Transacao(new User(campos[5], campos[3], campos[4],campos[6]), lancamentos);
+							trans = new Pedido(new User(campos[5], campos[3], campos[4],campos[6]), lancamentos);
 							trans.setData(campos[1]);
 							trans.setWeb(Boolean.valueOf(campos[2]));
 						}
@@ -58,9 +58,9 @@ public class ArquivoTeste {
 						}
 						break;
 					case "R":					
-							Reserva reserva;
+							SementeTratada reserva;
 							try {
-								reserva = new Reserva(campos[1],Float.valueOf(campos[2]),campos[3]);
+								reserva = new SementeTratada(campos[1],Float.valueOf(campos[2]),campos[3]);
 								reserva.setInfoAdicional(campos[4]);
 								lancamentos.add(reserva);
 							} catch (NumberFormatException | FormatoDataException | InfoAdicionalIncompletaException
@@ -71,18 +71,18 @@ public class ArquivoTeste {
 
 						break;
 					case "P":	
-							Partida partida;
+							Granel partida;
 							try{
-								partida = new Partida(campos[1],Float.valueOf(campos[2]),new Conta(campos[3],campos[4],Boolean.valueOf(campos[5])),Boolean.valueOf(campos[6]));
+								partida = new Granel(campos[1],Float.valueOf(campos[2]),new Variedade(campos[3],campos[4],Boolean.valueOf(campos[5])),Boolean.valueOf(campos[6]));
 								lancamentos.add(partida);
-							}catch(NameEmptyException  | ContaEmptyException e){
+							}catch(NameEmptyException  | VariedadeEmptyException e){
 								e.printStackTrace();
 							}		
 						break;
 					case "PP":		
-							Provisao provisao;
+							Semente provisao;
 							try{
-								provisao = new Provisao(campos[1],Float.valueOf(campos[2]),campos[3],Boolean.valueOf(campos[4]));
+								provisao = new Semente(campos[1],Float.valueOf(campos[2]),campos[3],Boolean.valueOf(campos[4]));
 								lancamentos.add(provisao);
 							}catch(FormatoDataException | NameEmptyException | DataPrevNullException e){
 								e.printStackTrace();

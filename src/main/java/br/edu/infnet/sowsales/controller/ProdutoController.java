@@ -10,21 +10,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.sowsales.controller.model.ControllerModel;
-import br.edu.infnet.sowsales.model.domain.Lancamento;
+import br.edu.infnet.sowsales.model.domain.Produto;
 import br.edu.infnet.sowsales.model.domain.User;
-import br.edu.infnet.sowsales.model.service.LancamentoService;
-import br.edu.infnet.sowsales.repository.LancamentosRepository;
-import br.edu.infnet.sowsales.repository.PartidasRepository;
+import br.edu.infnet.sowsales.model.service.ProdutoService;
+import br.edu.infnet.sowsales.repository.GranelRepository;
 import br.edu.infnet.sowsales.repository.UserRepository;
 
 @Controller
-public class LancamentoController extends ControllerModel<Lancamento, LancamentoService> {
-    public static final String controller = "lancamentos";
+public class ProdutoController extends ControllerModel<Produto, ProdutoService> {
+    public static final String controller = "produto";
 
     @Autowired
-    private static LancamentoService service;
+    private static ProdutoService service;
     
-    LancamentoController() {
+    ProdutoController() {
         super(service, controller);
     }
 
@@ -39,7 +38,7 @@ public class LancamentoController extends ControllerModel<Lancamento, Lancamento
     }
 
     @PostMapping(value = "/"+ controller +"/new")
-    public String post(Model model, Lancamento entidade) {
+    public String post(Model model, Produto entidade) {
         return super.post(model, entidade);
     }
 

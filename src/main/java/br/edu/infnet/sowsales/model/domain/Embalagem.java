@@ -1,11 +1,11 @@
 package br.edu.infnet.sowsales.model.domain;
 
-public abstract class Investimento {
+public abstract class Embalagem {
     private float valor;
     private String setor;
     private Integer id;
 
-    public Investimento(String setor, float valor) {
+    public Embalagem(String setor, float valor) {
         this.setor = setor;
         this.valor = valor;
     }

@@ -5,14 +5,14 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler;
+
 import br.edu.infnet.sowsales.model.exceptions.FormatoDataException;
 import br.edu.infnet.sowsales.model.exceptions.InfoAdicionalIncompletaException;
 import br.edu.infnet.sowsales.model.exceptions.NameEmptyException;
 
-public class Reserva extends Lancamento {
+public class SementeTratada extends Produto {
 
-    private Investimento invest;
-    
 
     private LocalDate dataPrev; 
     private Historico hist;
@@ -20,10 +20,16 @@ public class Reserva extends Lancamento {
 
     private String infoAdicional;
 
+    private String produtoTSI;
+    private float custoTSI;
+    private float custoProducao;
+
+    private Variedade variedade;
+
     private Integer id;
 
 
-    public Reserva(String name, float valor, String dataPrev) throws FormatoDataException, InfoAdicionalIncompletaException, NameEmptyException{
+    public SementeTratada(String name, float valor, String dataPrev) throws FormatoDataException, InfoAdicionalIncompletaException, NameEmptyException{
     	super(name, valor);
         try{
 			this.dataPrev = LocalDate.parse(dataPrev,DateTimeFormatter.ofPattern("yyyy-MM-dd")); 
@@ -34,7 +40,7 @@ public class Reserva extends Lancamento {
         
         //TODO Auto-generated constructor stub
     }
-    public Reserva(String name, float valor, LocalDate dataPrev, String infoAdicional) throws FormatoDataException, InfoAdicionalIncompletaException, NameEmptyException{
+    public SementeTratada(String name, float valor, LocalDate dataPrev, String infoAdicional) throws FormatoDataException, InfoAdicionalIncompletaException, NameEmptyException{
     	super(name, valor);
         this.dataPrev = dataPrev;
         this.infoAdicional = infoAdicional;
@@ -42,7 +48,7 @@ public class Reserva extends Lancamento {
         //TODO Auto-generated constructor stub
     }
 
-    public Reserva(String name, float valor, String dataPrev, String infoAdicional) throws FormatoDataException, InfoAdicionalIncompletaException, NameEmptyException{
+    public SementeTratada(String name, float valor, String dataPrev, String infoAdicional) throws FormatoDataException, InfoAdicionalIncompletaException, NameEmptyException{
     	super(name, valor);
         if(infoAdicional == null){
             throw new InfoAdicionalIncompletaException("Sem informacoes adicionais");
@@ -89,13 +95,7 @@ public class Reserva extends Lancamento {
     public void setHist(Historico hist) {
         this.hist = hist;
     }
-    public Investimento getInvest() {
-        return invest;
-    }
-
-    public void setInvest(Investimento invest) {
-        this.invest = invest;
-    }
+    
     public String getInfoAdicional() {
         return infoAdicional;
     }
@@ -110,7 +110,29 @@ public class Reserva extends Lancamento {
 	public Integer getId(){
 		return id;
 	}
-
-
+    public void setProdutoTSI(String tsi){
+        this.produtoTSI = tsi;
+    }
+    public String getProdutoTSI(){
+        return produtoTSI;
+    }
+    public void setCustoTSI(float custoTSI){
+        this.custoTSI = custoTSI;
+    }
+    public float getCustoTSI(){
+        return custoTSI;
+    }
+    public void setCustoProducao(float custoProducao){
+        this.custoProducao = custoProducao;
+    }
+    public float getCustoProducao(){
+        return custoProducao;
+    }
+    public void setVariedade(Variedade variedade){
+        this.variedade = variedade;
+    }
+    public Variedade getVariedade(){
+        return variedade;
+    }
 
 }
