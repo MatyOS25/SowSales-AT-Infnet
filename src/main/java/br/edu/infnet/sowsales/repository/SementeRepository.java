@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.sowsales.model.domain.Provisao;
+import br.edu.infnet.sowsales.model.domain.Semente;
 import br.edu.infnet.sowsales.model.domain.User;
 import br.edu.infnet.sowsales.model.service.interfaces.IRepository;
 import br.edu.infnet.sowsales.repository.model.RepositoryModel;
@@ -14,17 +14,17 @@ import java.util.HashMap;
 import java.util.Collection;
 
 @Repository
-public class ProvisoesRepository extends RepositoryModel<Provisao> implements IRepository<Provisao> {
-    ProvisoesRepository(){
+public class SementeRepository extends RepositoryModel<Semente> implements IRepository<Semente> {
+    SementeRepository(){
         super();
     }
-    public boolean add(Provisao entity){
+    public boolean add(Semente entity){
         return super.add(entity);
     }
-    public Provisao remove(Integer key){
+    public Semente remove(Integer key){
       return super.remove(key);  
     }
-    public Collection<Provisao> returnList(){
+    public Collection<Semente> returnList(){
         return super.returnList();
     }
 }

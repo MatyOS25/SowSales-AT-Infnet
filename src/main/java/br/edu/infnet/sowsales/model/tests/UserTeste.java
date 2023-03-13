@@ -1,7 +1,7 @@
 package br.edu.infnet.sowsales.model.tests;
 
 import br.edu.infnet.sowsales.model.auxiliar.Constante;
-import br.edu.infnet.sowsales.model.domain.Conta;
+import br.edu.infnet.sowsales.model.domain.Variedade;
 import br.edu.infnet.sowsales.model.domain.User;
 import br.edu.infnet.sowsales.model.exceptions.UserIncompletoException;
 

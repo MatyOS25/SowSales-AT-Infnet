@@ -3,29 +3,32 @@ package br.edu.infnet.sowsales.model.domain;
 import br.edu.infnet.sowsales.model.exceptions.NameEmptyException;
 import br.edu.infnet.sowsales.model.service.interfaces.IModel;
 
-public abstract class Lancamento implements IModel {
+public abstract class Produto implements IModel {
 	private String name;
 	private float valor;
 	private String description = "Sem descricao";
-	private Conta conta;
+	private Embalagem embalagem;
+	private String especie;
+	private int quantidade;
 
 	private Integer id;
 
 
-	public Lancamento(String name, float valor, String description,Conta conta) throws NameEmptyException {
+	public Produto(String name, float valor, String description,Embalagem embalagem) throws NameEmptyException {
 		this(name, valor, description);
-		this.conta = conta;
+		this.embalagem = embalagem;
 	}
-	public Lancamento(String name, float valor, Conta conta) throws NameEmptyException {
+	
+	public Produto(String name, float valor, Embalagem embalagem) throws NameEmptyException {
 		this(name, valor);
-		this.conta = conta;
+		this.embalagem = embalagem;
 	}
-	public Lancamento(String name, float valor, String description) throws NameEmptyException{
+	public Produto(String name, float valor, String description) throws NameEmptyException{
 		this(name, valor);
 		this.description = description;
 	}
 
-	public Lancamento(String name, float valor) throws NameEmptyException {
+	public Produto(String name, float valor) throws NameEmptyException {
 		if(name == null) {
 			throw new NameEmptyException("Nome precisa ser preenchido");
 		}
@@ -54,9 +57,7 @@ public abstract class Lancamento implements IModel {
 	public String getName() {
 		return name;
 	}
-	public Conta getConta() {
-		return conta;
-	}
+	
 	public String getDescription() {
 		return description;
 	}
@@ -67,6 +68,24 @@ public abstract class Lancamento implements IModel {
 	  }
 	public Integer getId(){
 		return id;
+	}
+	public void setEmbalagem(Embalagem emb){
+		this.embalagem = emb;
+	}
+	public Embalagem getEmbalagem(){
+		return embalagem;
+	}
+	public void setEspecie(String especie){
+		this.especie = especie;
+	}
+	public String getEspecie(){
+		return especie;
+	}
+	public void setQuantidade(int quant){
+		this.quantidade = quant;
+	}
+	public int getQuantidade(){
+		return quantidade;
 	}
 	
 }

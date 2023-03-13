@@ -1,17 +1,13 @@
 package br.edu.infnet.sowsales.model.domain;
 
-public abstract class Investimento {
+public abstract class Embalagem {
     private float valor;
-    private String setor;
+    private String name;
     private Integer id;
 
-    public Investimento(String setor, float valor) {
-        this.setor = setor;
+    public Embalagem(String name, float valor) {
+        this.name = name;
         this.valor = valor;
-    }
-
-    public String getSetor() {
-        return setor;
     }
     
     public float getValor() {
@@ -24,4 +20,10 @@ public abstract class Investimento {
 	public Integer getId(){
 		return id;
 	}
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 }
