@@ -5,7 +5,7 @@ public class Variedade {
     private boolean ativo;
     
     private String obtentor;
-    private Variedade contaMae;
+    private Variedade variedade;
 
     private Integer id;
 
@@ -30,11 +30,11 @@ public class Variedade {
 
     
     
-    public Variedade getContaMae(){
-        return contaMae;
+    public Variedade getvariedade(){
+        return variedade;
     }
-    public void setContaMae(Variedade contaMae){
-        this.contaMae = contaMae;
+    public void setvariedade(Variedade variedade){
+        this.variedade = variedade;
     }
     public boolean isAtivo() {
         return ativo;

@@ -8,6 +8,9 @@ public class Cliente{
     private String cpf;
     private String cnpj;
     private Integer id;
+    private String endereco;
+
+    
 
     public Cliente(String email,  String nome, String ident) throws UserIncompletoException {
     	if(nome == null || nome == "" || email == null || email == "" || ident == null || ident == "" ) {
@@ -60,7 +63,13 @@ public class Cliente{
     }
 
 
+    public String getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
 
   

@@ -20,7 +20,11 @@ public class Pedido  implements IModel{
 	private List<Produto> itens_pedido;
 
 	private String safra;
+	private float custoTransporte;
+	
+	private float custoTotal;
 
+	
 	private Integer id;
 
 	public Pedido(Cliente cliente, List<Produto> itens_pedido) throws FormatoDataException {
@@ -119,5 +123,16 @@ public class Pedido  implements IModel{
 	public String getSafra(){
 		return safra;
 	}
-
+	public float getCustoTransporte() {
+		return custoTransporte;
+	}
+	public void setCustoTransporte(float custoTransporte) {
+		this.custoTransporte = custoTransporte;
+	}
+	public float getCustoTotal() {
+		return custoTotal;
+	}
+	public void setCustoTotal(float custoTotal) {
+		this.custoTotal = custoTotal;
+	}
 }

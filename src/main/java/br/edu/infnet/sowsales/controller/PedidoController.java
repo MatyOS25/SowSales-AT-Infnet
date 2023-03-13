@@ -1,7 +1,5 @@
 package br.edu.infnet.sowsales.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import br.edu.infnet.sowsales.controller.model.ControllerModel;
 import br.edu.infnet.sowsales.model.domain.Pedido;
 import br.edu.infnet.sowsales.model.service.PedidoService;
-import br.edu.infnet.sowsales.repository.PedidoRepository;
 
 @Controller
 public class PedidoController extends ControllerModel<Pedido,PedidoService>{

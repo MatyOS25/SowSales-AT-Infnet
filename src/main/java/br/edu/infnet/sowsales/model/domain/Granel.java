@@ -5,24 +5,21 @@ import br.edu.infnet.sowsales.model.exceptions.NameEmptyException;
 
 public class Granel extends Produto {
 
-
-    private boolean transacao;
     private float umidade;
     private boolean exportacao;
     private boolean graoArdido;
-    
     private Integer id;
     
     
-    public Granel(String name, float valor, String description, Variedade variedade, boolean exportacao ) throws NameEmptyException, VariedadeEmptyException {
-        super(name, valor,description,variedade);
+    public Granel(String name, float valor, String description, boolean exportacao ) throws NameEmptyException, VariedadeEmptyException {
+        super(name, valor,description,exportacao);
         if(variedade == null) {
         	throw new VariedadeEmptyException("variedade necessaria para cadastrar partida");
         }
         this.exportacao = exportacao;
     }
 
-    public Granel(String name, float valor, Variedade variedade, boolean transacao) throws NameEmptyException, VariedadeEmptyException {
+    public Granel(String name, float valor, boolean transacao) throws NameEmptyException, VariedadeEmptyException {
         super(name, valor, variedade);
         if(variedade == null) {
         	throw new VariedadeEmptyException("variedade necessaria para cadastrar partida");

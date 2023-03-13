@@ -7,7 +7,6 @@ public abstract class Produto implements IModel {
 	private String name;
 	private float valor;
 	private String description = "Sem descricao";
-	private Variedade variedade;
 	private Embalagem embalagem;
 	private String especie;
 	private int quantidade;
@@ -15,18 +14,14 @@ public abstract class Produto implements IModel {
 	private Integer id;
 
 
-	public Produto(String name, float valor, String description,Variedade variedade) throws NameEmptyException {
+	public Produto(String name, float valor, String description,Embalagem embalagem) throws NameEmptyException {
 		this(name, valor, description);
-		this.variedade = variedade;
-	}
-	public Produto(String name, float valor, String description,Variedade variedade, Embalagem embalagem) throws NameEmptyException {
-		this(name, valor, description);
-		this.variedade = variedade;
 		this.embalagem = embalagem;
 	}
-	public Produto(String name, float valor, Variedade variedade) throws NameEmptyException {
+	
+	public Produto(String name, float valor, Embalagem embalagem) throws NameEmptyException {
 		this(name, valor);
-		this.variedade = variedade;
+		this.embalagem = embalagem;
 	}
 	public Produto(String name, float valor, String description) throws NameEmptyException{
 		this(name, valor);
@@ -62,9 +57,7 @@ public abstract class Produto implements IModel {
 	public String getName() {
 		return name;
 	}
-	public Variedade getVariedade() {
-		return variedade;
-	}
+	
 	public String getDescription() {
 		return description;
 	}

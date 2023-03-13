@@ -1,8 +1,6 @@
 package br.edu.infnet.sowsales.controller;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.infnet.sowsales.controller.model.ControllerModel;
 import br.edu.infnet.sowsales.model.domain.SementeTratada;
-import br.edu.infnet.sowsales.model.domain.User;
-import br.edu.infnet.sowsales.model.exceptions.DataPrevNullException;
 import br.edu.infnet.sowsales.model.exceptions.FormatoDataException;
 import br.edu.infnet.sowsales.model.exceptions.InfoAdicionalIncompletaException;
 import br.edu.infnet.sowsales.model.exceptions.NameEmptyException;
 import br.edu.infnet.sowsales.model.service.SementeTratadaService;
-import br.edu.infnet.sowsales.repository.SementeTratadaRepository;
-import br.edu.infnet.sowsales.repository.UserRepository;
 
 @Controller
 public class SementeTratadaController extends ControllerModel<SementeTratada, SementeTratadaService>{

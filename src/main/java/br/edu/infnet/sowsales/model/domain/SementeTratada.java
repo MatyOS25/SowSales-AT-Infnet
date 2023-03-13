@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler;
 
 import br.edu.infnet.sowsales.model.exceptions.FormatoDataException;
 import br.edu.infnet.sowsales.model.exceptions.InfoAdicionalIncompletaException;

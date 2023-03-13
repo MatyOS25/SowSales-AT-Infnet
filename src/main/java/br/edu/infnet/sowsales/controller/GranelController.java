@@ -12,14 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.infnet.sowsales.controller.model.ControllerModel;
 import br.edu.infnet.sowsales.model.domain.Granel;
-import br.edu.infnet.sowsales.model.domain.User;
-import br.edu.infnet.sowsales.model.exceptions.DataPrevNullException;
-import br.edu.infnet.sowsales.model.exceptions.FormatoDataException;
 import br.edu.infnet.sowsales.model.exceptions.NameEmptyException;
 import br.edu.infnet.sowsales.model.exceptions.VariedadeEmptyException;
 import br.edu.infnet.sowsales.model.service.GranelService;
-import br.edu.infnet.sowsales.repository.GranelRepository;
-import br.edu.infnet.sowsales.repository.UserRepository;
 
 @Controller
 public class GranelController<LocalDate> extends ControllerModel<Granel, GranelService>{
